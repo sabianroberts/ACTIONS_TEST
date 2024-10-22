@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   getTag:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: GET TAG NAME
         run: echo ${{ github.ref_name }}
