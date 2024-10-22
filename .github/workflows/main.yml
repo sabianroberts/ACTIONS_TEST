@@ -7,7 +7,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: GET TAG NAME
-        run: echo $GITHUB_REF_NAME
+        run: echo ${{ github.ref_name }}
   doRelease:
     runs-on: windows-latest
     steps:
@@ -15,7 +15,7 @@ jobs:
         uses: softprops/action-gh-release@v2.0.8
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          body_path: versions/$GITHUB_REF_NAME.md
+          body_path: versions/${{ github.ref_name }}.md
           prerelease: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
