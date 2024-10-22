@@ -9,7 +9,7 @@ jobs:
       - name: GET TAG NAME
         run: echo ${{ github.ref_name }}
   doRelease:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: CREATE RELEASE
         uses: softprops/action-gh-release@v2.0.8
