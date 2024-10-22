@@ -1,0 +1,16 @@
+name: Release tagged commit.
+
+on: [create]
+
+jobs:
+  doRelease:
+    runs-on: windows-latest
+    steps:
+      - name: CREATE RELEASE
+        uses: softprops/action-gh-release@v2.0.8
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          body_path: versions/${{ github.ref_name }}.md
+          prerelease: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
