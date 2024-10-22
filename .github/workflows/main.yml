@@ -1,6 +1,6 @@
 name: Release tagged commit.
 
-on: [create]
+on: [push]
 
 jobs:
   getTag:
